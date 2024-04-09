@@ -24,7 +24,7 @@ const reviewRoutes = require('./routes/reviews');
 const contactuserRoutes = require('./routes/contactuser');
 const adminRoutes = require('./routes/admin');
 
-mongoose.connect('mongodb://localhost:27017/ranchi-tourism', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
