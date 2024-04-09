@@ -1,0 +1,33 @@
+<!-- <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark"> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Ranchi Tourist Guide</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Home </a>
+                <a class="nav-link" href="/map">Search MAP</a>
+                
+                <a class="nav-link" href="/about_us">About us</a>
+                <!-- <a class="nav-link" href="/adminlogin">Admin Login</a>
+                 -->
+                <a class="nav-link" href="/campgrounds">Explore</a>
+                <a class="nav-link" href="/campgrounds/new">Add new places</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <% if(!currentUser) {%>
+                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/register">Register</a>
+                <% } else {%>
+                <a class="nav-link" href="/logout">Logout</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
+
+

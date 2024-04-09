@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ranchi Tourist Guide</title>
+    <link rel="shortcut icon" href="assets1/images/fav.png" type="image/x-icon">
+   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets1/images/fav.jpg">
+    <link rel="stylesheet" href="assets1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets1/css/all.min.css">
+    <link rel="stylesheet" href="assets1/css/animate.css">
+    <link rel="stylesheet" href="assets1/plugins/slider/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets1/plugins/slider/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="assets1/css/style.css" />
+
+
+
+
+
+
+
+
+   
+
+
+
+
+</head>
+
+<body>
+  
+   
+    
+   <header class="container-fluid">
+
+
+      
+       <div id="menu-jk" class="header-bottom">
+            <div class="container-fluid">
+                <div class="row">
+                
+                    
+                    <div id="menu" class="navs d-none d-md-block col-md-9">
+                        <ul>
+                           
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/map">Search Map</a></li>
+                            <li><a href="/about_us">About Us</a></li>
+                            <!-- <li><a href="/contact">Contact Us</a></li> -->
+                            <li><a href="/campgrounds">Explore</a></li>
+                            <li><a href="/campgrounds/new">Add new place</a></li>                         
+                            <% if(!currentUser) {%>
+                                <li><a href="/login">Login</a></li>
+                                <li><a href="/register">Register</a></li>
+                                <% } else {%>
+                                 <li><a href="/logout">Logout</a></li>
+                                
+                                <% } %>
+
+                                <li><a href="/adminlogin">Admin Login</a></li>
+
+
+                            
+                        </ul>
+                        
+                    </div>
+                    <form  class="d-flex"  action="/campgrounds/search" method="post" >
+                        <input class="form-control me-2" id="title" name="title" type="text" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+  </header>
+   
+    
+
+    <div class="slider-detail">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+
+                <div class="carousel-item ">
+                    <img class="d-block w-100" style="height: 550px;"src="r1.jpg" alt="First slide">
+                    <div class="carousel-caption fvgb d-none d-md-block">
+                        <h5 class="animated bounceInDown">Ranchi Tourist Guide</h5>
+                        <div class="row vbh">
+
+                            <div class="btn btn-primary animated bounceInUp"> <a href="/campgrounds">Explore </div></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item ">
+                    <img class="d-block w-100" style="height: 550px;"src="r4.jpg" alt="First slide">
+                    <div class="carousel-caption fvgb d-none d-md-block">
+                        <h5 class="animated bounceInDown">Ranchi Tourist Guide</h5>
+                        <div class="row vbh">
+
+                            <div class="btn btn-primary animated bounceInUp"><a href="/campgrounds"> Explore </a> </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item active">
+                    <img class="d-block w-100" style="height: 550px;" src="r2.jpg"  alt="Third slide">
+                    <div class="carousel-caption vdg-cur d-none d-md-block">
+                        <h5 class="animated bounceInDown">Ranchi Tourist Guide</h5>
+                        
+                        <div class="row vbh">
+
+                            <div class="btn btn-primary animated bounceInUp"> <a href="/campgrounds"> Explore</a> </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+    </div>
+    
+    
+    
+    
+    
+
+
+
+    
+    <section class="top-packages container-fluid">
+        <div class="container">
+            <div class="session-title row">
+                <h2>Top Destinations</h2>
+                <p>Explore places with us </p>
+            </div>
+            <div class="pack-row row">
+
+                <% count=0;
+               
+              
+                for (let campground of  campgrounds)
+                
+                {%>
+
+                <div class="col-md-4">
+                    <div class="pac-col">
+                        <img style="height: 300px;" src="<%=campground.images[0].url%>" alt="">
+                        <div class="packdetail">
+                            
+                            <h4><a href="/campgrounds/<%=campground._id%>">  <%= campground.title %> </a></h4>
+                            <div class="daydet">
+                                <span><i class="far fa-clock"></i><%= campground.location%></span>
+                                 
+                            </div>
+                            <div class="eview-row row no-margin">
+                                <ul>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <% 
+                count=count+1;
+                if(count==6)
+                break;
+            }%>
+
+
+
+
+
+
+
+        </div>
+    </section>
+    
+     
+    
+    <div class="lloking-for container-fluid">
+        <div class="inn-lay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 natur-col mx-auto">
+                        <h2>We have best guidance around Ranchi</h2>
+                        <h4 class="pt-3">You can also add places or give feedback and reviews on the tourist destinations </h4>
+                        <button class="btn btn-light"><a href="/map">Explore places through Map</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    
+   
+    <div class="blog">
+
+        <div class="container">
+            <div class="row session-title">
+                <h2>Recently added tourist place in the site</h2>
+               
+            </div>
+            <div class="row blog-row">
+
+
+                <% count1=0;
+               
+              campgrounds2.reverse()
+                for (let campground of  campgrounds2)
+                
+                {%>
+
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="blog-singe no-margin row">
+                        <div class="col-sm-5 blog-img-tab">
+                            <img style="height: 150px;" src="<%=campground.images[0].url%>" alt="">
+                        </div>
+                        <div class="col-sm-7 blog-content-tab">
+                            <h2><%= campground.title %></h2>
+                            
+                            <p class="blog-desic"><%= campground.location%></p>
+                            <a href="blog_single.html"><a href="/campgrounds/<%=campground._id%>">Read More  <i class="fas fa-arrow-right"></i> </a></a>
+                        </div>
+                    </div>
+                </div>
+
+                <% 
+                count1=count1+1;
+                if(count1==6)
+                break;
+            }%>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+
+     <div class="copy">
+        <div class="container">
+            <p> Designed and Developed by Karan, Ankur, Shubham</p>
+
+         
+        </div>
+
+    </div>                 
+    
+    
+</body>
+
+<script src="assets1/js/jquery-3.2.1.min.js"></script>
+<script src="assets1/js/popper.min.js"></script>
+<script src="assets1/js/bootstrap.min.js"></script>
+<script src="assets1/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
+<script src="assets1/plugins/slider/js/owl.carousel.min.js"></script>
+<script src="assets1/js/script.js"></script>
+
+</html>
