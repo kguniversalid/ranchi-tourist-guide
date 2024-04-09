@@ -23,13 +23,8 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const contactuserRoutes = require('./routes/contactuser');
 const adminRoutes = require('./routes/admin');
-
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-});
+console.log(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -156,8 +151,8 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-app.listen(3000, () => {
-    console.log('Serving on port 3000')
+app.listen(10000, () => {
+    console.log('Serving on port 10000')
 })
 
 
