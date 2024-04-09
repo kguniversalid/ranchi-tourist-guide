@@ -1,0 +1,256 @@
+
+<% layout('layouts/admin_boilerplate')%>
+
+
+
+
+
+  <%
+  
+  var countCampgrounds=0;
+  var countUsers=0;
+  var countReviews=0;
+  var countContact=0;
+  campgrounds.reverse();
+  for (let campground of campgrounds){
+    countCampgrounds=countCampgrounds+1;
+  
+  }
+  users.reverse();
+  for (let user of users){    
+   countUsers=countUsers+1;
+  }
+
+  for (let review of reviews){    
+   countReviews=countReviews+1;
+  }
+  
+  for (let contact of contacts){    
+   countContact=countContact+1;
+  }
+  
+  
+  
+  %>
+
+
+
+
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section">
+      <div class="row">
+
+       
+        <div class="col-lg-12">
+          <div class="row">
+
+            
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Total Users </h5>
+
+                  <div class="d-flex align-items-center">
+                    
+                    <div class="ps-3">
+                      <h6><%= countUsers %></h6>
+                     
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+              
+
+                <div class="card-body">
+                  <h5 class="card-title">Total places</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="ps-3">
+                      <h6><%= countCampgrounds %></h6>
+                      
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+           
+            <div class="col-xxl-4 col-xl-12">
+
+              <div class="card info-card customers-card">
+
+               
+
+                <div class="card-body">
+                  <h5 class="card-title">Total reviews</h5>
+
+                  <div class="d-flex align-items-center">
+                   
+                    <div class="ps-3">
+                      <h6><%= countReviews %></h6>
+                      
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+
+
+
+          
+
+            
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                
+
+                <div class="card-body">
+                  <h5 class="card-title">All users list </h5>
+
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Visit</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <%
+                      var n=1;
+                      for (let user of users){ %>                        
+                      <tr>
+                        <th scope="row"><%=n%></th>
+                        <td><%=user.first_name%> <%=user.last_name%></td>
+                        <td><%=user.username%></td>
+                        <td><%=user.email%></td>
+                        <td><a href="/admin/<%=user._id%>/edituser" class="text-primary">check</a></td>
+                      
+                      </tr>
+                      
+                      <% n=n+1;
+                     }%>
+                      
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
+
+
+
+
+            <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                
+
+                <div class="card-body">
+                  <h5 class="card-title">All Tourist Places </h5>
+
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Place name</th>
+                        <th scope="col">Location</th>
+                        
+                        <th scope="col">Visit</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <%
+                      var m=1;
+                      for (let campground of campgrounds){ %>       
+                        
+
+                      <tr>
+                        <th scope="row"><%=m%></th>
+                        <th scope="row"><a href="#"><img style="height: 60px" src="<%= campground.images[0].url%>" alt=""></a></th>
+                        <td  class="text-primary fw-bold"><%=campground.title%></td>
+
+                        <td><%=campground.location%></td>
+                        
+                        <td><a href="/admin/<%=campground._id%>" class="text-primary">check</a></td>
+
+
+                      
+                      </tr>
+                      
+                      <% m=m+1;
+                     }%>
+                      
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
+
+
+
+
+
+
+
+           
+
+          </div>
+        </div><!-- End Left side columns -->
+
+      
+      
+      
+      
+
+
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+ 
+
+
+
+</html>

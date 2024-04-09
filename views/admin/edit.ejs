@@ -1,0 +1,126 @@
+
+<% layout('layouts/admin_boilerplate')%>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class="row">
+
+    
+   
+    <h1 class="text-center">Edit <%=campground.title%> </h1>
+    <div class="col-6 offset-3">
+        <form action="/admin/<%=campground._id%>?_method=PUT" method="POST" 
+            enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="campground[title]"
+                    value="<%=campground.title %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="campground[location]"
+                    value="<%=campground.location %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <!-- <div class="mb-3">
+                <label class="form-label" for="latitude">Latitude</label>
+                <input class="form-control" type="text" id="latitude" name="campground[latitude]"
+                    value="<%=campground.latitude %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="longitude">Longitude</label>
+                <input class="form-control" type="text" id="longitude" name="campground[longitude]"
+                    value="<%=campground.longitude %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div> -->
+
+            
+            <div class="mb-3">
+                <label class="form-label" for="description">Mini Description</label>
+                <textarea class="form-control" type="text" id="description" name="campground[description]"
+                    required><%= campground.description%></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="description">Short Description</label>
+                <textarea rows="5" class="form-control" type="text" id="shortDescription" name="campground[shortDescription]"
+                    ><%= campground.shortDescription%></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="description">Long Description</label>
+                <textarea rows="10" class="form-control" type="text" id="longDescription" name="campground[longDescription]"
+                    ><%= campground.longDescription%></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+
+            
+
+            
+
+           
+            <div class="mb-3">
+                <% campground.images.forEach(function(img, i) {  %>
+
+                <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                <div class="form-check-inline">
+                    <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                </div>
+                <label for="image-<%=i%>">Delete?</label>
+                <% })%>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-info">Update place</button>
+
+                
+            </div>
+        </form>
+        <form class="d-inline" action="/admin/<%=campground._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete <%=campground.title %> all records</button>
+        </form>
+
+       
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

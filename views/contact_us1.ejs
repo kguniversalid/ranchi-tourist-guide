@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ranchi Tourist  Guide</title>
+    <link rel="shortcut icon" href="/assets1/images/fav.png" type="image/x-icon">
+   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets1/images/fav.jpg">
+    <link rel="stylesheet" href="/assets1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets1/css/all.min.css">
+    <link rel="stylesheet" href="/assets1/css/animate.css">
+    <link rel="stylesheet" href="/assets1/plugins/slider/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets1/plugins/slider/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets1/css/style.css" />
+</head>
+
+<body>
+  
+   
+
+    
+ <header class="container-fluid">
+
+
+      
+    <div id="menu-jk" class="header-bottom">
+         <div class="container-fluid">
+             <div class="row">
+             
+                 
+                 <div id="menu" class="navs d-none d-md-block col-md-9">
+                     <ul>
+                        
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/map">Search Map</a></li>
+                        <li><a href="/about_us">About Us</a></li>
+                        <!-- <li><a href="/contact">Contact</a></li> -->
+                        <li><a href="/campgrounds">Explore</a></li>
+                        <li><a href="/campgrounds/new">Add new place</a></li>                         
+                        <% if(!currentUser) {%>
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
+                            <% } else {%>
+                             <li><a href="/logout">Logout</a></li>
+                            
+                            <% } %>
+
+                         
+                     </ul>
+                     
+                 </div>
+                 
+             </div>
+         </div>
+     </div>
+</header>
+
+
+
+
+   
+    <br>
+ 
+    
+    
+
+
+    <div style="margin-top:0px;" class="row no-margin">
+
+       
+
+        <iframe style="width:100%" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d249759.19784092825!2d85.440761!3d23.414777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1448883859107"  height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+    </div>
+
+    <div class="row contact-rooo no-margin">
+        <div class="container">
+            <div class="row">
+
+
+                <div style="padding:20px" class="col-sm-7">
+                    <h2 >Contact us</h2> <br>
+                    <form action="/contact/newcontact" method="POST" novalidate class="validated-form" >
+                    <div class="row cont-row">
+                        <div  class="col-sm-3"><label>Enter Name </label><span>:</span></div>
+                        <div class="col-sm-8"><input type="text" placeholder="Enter Name" id="name" name="name" class="form-control input-sm"  ></div>
+                    </div>
+                    <div  class="row cont-row">
+                        <div  class="col-sm-3"><label>Email Address </label><span>:</span></div>
+                        <div class="col-sm-8"><input type="text" id="email" name="email" placeholder="Enter Email Address" class="form-control input-sm"  ></div>
+                    </div>
+                    <div  class="row cont-row">
+                        <div  class="col-sm-3"><label>Mobile Number</label><span>:</span></div>
+                        <div class="col-sm-8"><input type="number" id="mobile_number" name="mobile_number" placeholder="Enter Mobile Number" class="form-control input-sm"  ></div>
+                    </div>
+                    <div  class="row cont-row">
+                        <div  class="col-sm-3"><label>Enter Message</label><span>:</span></div>
+                        <div class="col-sm-8">
+                            
+                            <textarea type="text" rows="5" id="message" name="message" placeholder="Enter Your Message" class="form-control input-sm"></textarea>
+                        </div>
+                    </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
+                        <div class="col-sm-8">
+                            <button class="btn btn-success btn-sm" type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                <div class="col-sm-5">
+
+                    <div style="margin:50px" class="serv">
+
+
+
+
+
+                        <h2 style="margin-top:10px;">Address</h2>
+
+                       Birla Intitute of Technology , <br>
+                        Mesra,<br>
+                        Ranchi,<br>
+                        Jharkhand, India<br>
+                        Pin Code : 835215<br>
+                      
+
+
+
+
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+     
+
+    
+
+
+    <div class="copy">
+        <div class="container">
+            <p> Designed and Developed by Karan, Ankur, Shubham</p>
+
+         
+        </div>
+
+    </div>                  
+    
+    
+</body>
+
+<script src="/assets1/js/jquery-3.2.1.min.js"></script>
+<script src="/assets1/js/popper.min.js"></script>
+<script src="/assets1/js/bootstrap.min.js"></script>
+<script src="/assets1/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
+<script src="/assets1/plugins/slider/js/owl.carousel.min.js"></script>
+<script src="/assets1/js/script.js"></script>
+
+</html>

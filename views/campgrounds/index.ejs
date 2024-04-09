@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate')%>
+
+<h1>Explore tourist places of Ranchi</h1>
+<div>
+    <a href="/campgrounds/new">Add more places</a>
+</div>
+
+<hr>
+
+<style>
+    .column-container {
+  column-count: 2; 
+  column-gap: 20px; 
+}
+
+.item {
+  margin-bottom: 50px; 
+}
+
+
+.fixed-size-image {
+  width: 430px; 
+  height: 250px; 
+  object-fit: cover; 
+}
+
+
+
+</style>
+
+
+
+<%
+campgrounds.reverse();
+for (let campground of campgrounds){%>
+<div  class="item">
+    <div class="row">
+        <div class="col-md-4">
+            <img  class="fixed-size-image" alt="" src="<%=campground.images[0].url%>">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= campground.title %> </h5>
+                <p class="card-text"><%= campground.description %></p>
+                <p class="card-text">
+                    <small class="text-muted"><%= campground.location%></small>
+                </p>
+                <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">View <%=campground.title%></a>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>
