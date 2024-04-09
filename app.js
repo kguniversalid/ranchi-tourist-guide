@@ -23,7 +23,10 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const contactuserRoutes = require('./routes/contactuser');
 const adminRoutes = require('./routes/admin');
-console.log(process.env.MONGODB_URI)
+
+const MongoStore = require('connect-mongo');
+
+
 mongoose.connect(process.env.MONGODB_URI);
 
 const db = mongoose.connection;
@@ -42,7 +45,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 
+
+const store = MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: 'thisshouldbeabettersecret!'
+    }
+});
+
+
+
 const sessionConfig = {
+    store,
     secret: 'thisshouldbeabettersecret!',
     resave: false,
     saveUninitialized: true,
