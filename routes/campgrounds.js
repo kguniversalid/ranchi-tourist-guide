@@ -15,6 +15,7 @@ router.route('/')
 
 
 router.get('/new', isLoggedIn, campgrounds.renderNewForm)
+//router.get('/new',  campgrounds.renderNewForm)
 
 router.route('/:id')
     .get(catchAsync(campgrounds.showCampground))
